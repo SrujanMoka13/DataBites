@@ -38,6 +38,33 @@ This project demonstrates the following SQL techniques:
   ```sql
   SELECT * FROM sales;
 
+Filter sales where Amount > 10,000 and sort in descending order:
+
+sql
+Copy
+Edit
+SELECT * FROM sales WHERE Amount > 10000 ORDER BY Amount DESC;
+Categorize sales amounts using a CASE statement:
+
+sql
+Copy
+Edit
+SELECT SaleDate, Amount,
+    CASE
+        WHEN Amount < 1000 THEN 'Under 1K'
+        WHEN Amount < 5000 THEN 'Under 5K'
+        ELSE '5K or More'
+    END AS 'Amount Category'
+FROM sales;
+Join sales and people tables:
+
+sql
+Copy
+Edit
+SELECT s.SaleDate, s.Amount, p.Salesperson
+FROM sales s
+INNER JOIN people p ON s.GeoID = p.Region;
+
 Use Cases
 This project is useful for:
 
@@ -47,12 +74,25 @@ Analyzing datasets for business intelligence or data analytics tasks.
 
 Understanding database relationships and performing cross-table analysis
 
+Use Cases
+This project is useful for:
+
+Learning SQL query writing, from basic to advanced levels.
+
+Analyzing datasets for business intelligence or data analytics tasks.
+
+Understanding database relationships and performing cross-table analysis.
+
 How to Use
 Clone the repository:
-git clone https://github.com/yourusername/awesome-chocolates-sql.git
 
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/awesome-chocolates-sql.git
 Set up a MySQL database and import the provided schema/data.
-Run the SQL queries in your preferred MySQL client or command-line interface
+
+Run the SQL queries in your preferred MySQL client or command-line interface.
 
 Technologies Used
 Database: MySQL
@@ -61,6 +101,9 @@ Query Language: SQL
 
 Contributing
 Contributions are welcome! Feel free to fork this repository and submit pull requests with additional queries, optimizations, or new features.
+
+License
+This project is licensed under the MIT License.
 
 License
 This project is licensed under the MIT License.
